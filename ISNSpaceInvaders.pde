@@ -134,8 +134,8 @@ void ecranAccueil(){
   text("Exit / Quitter",width>>1,height*0.84+10);
 }
 void ajouterEnnemis(){
-  xE.add(tEnnemis);
-  yE.add((int)(Math.random()*(height-tEnnemis)));  
+  xE.add(0);
+  yE.add((int)(Math.random()*(height-tEnnemis))+(tEnnemis/2));  
 }
 
  void bougerEnnemi(){
@@ -313,8 +313,13 @@ void affichage(){
     x = xE.get(i); y = yE.get(i);
     fill(255);
     stroke(0);
-    imageMode(CENTER);
-    image(asteroid,x,y);
+    if(tEnnemis == 30){
+      imageMode(CENTER);
+      image(asteroid,x,y);
+    }
+    else{
+      ellipse(x,y,tEnnemis,tEnnemis);
+    }
   }
   fill(255,0,0);
   stroke(255,0,0);
